@@ -3,12 +3,12 @@ import logo from '../logo.png';
 
 function header() {
   return (
-    <div className="d-flex align-items-center justify-content-between mx-2 py-3">
-      <div className="d-flex align-items-center">
+    <div>
+      <div>
         <img
           src={logo}
           alt="logo"
-          className="logo me-2"
+          className="logo"
           style={{
             display: 'inline-block',
           }}
@@ -18,19 +18,16 @@ function header() {
       <nav>
         <NavLink
           to="/rockets"
-          className="px-3"
         >
           Rockets
         </NavLink>
         <NavLink
           to="/missions"
-          className="px-3 border-end border-dark"
         >
           Missions
         </NavLink>
         <NavLink
           to="/profile"
-          className="px-3"
         >
           My Profile
         </NavLink>
