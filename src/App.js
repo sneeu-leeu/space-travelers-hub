@@ -19,7 +19,8 @@ function App() {
         <Route path="/profile">
           <Profile />
         </Route>
-      
+      </Switch>
+    </Router>
   );
 }
 
