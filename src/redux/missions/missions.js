@@ -15,7 +15,7 @@ const addMission = (mission) => ({
   payload: mission,
 });
 
-const joinMission = (mission) => ({
+export const joinTheMission = (mission) => ({
   type: JOIN_MISSION,
   payload: mission,
 });
