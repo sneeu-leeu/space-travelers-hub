@@ -3,9 +3,12 @@ import { useEffect } from 'react';
 import {
   Table, Container, Badge, Button,
 } from 'react-bootstrap';
-import { fetchMissions, missions } from "../redux/missions/missions";
+import { fetchMissions, missions } from '../redux/missions/missions';
 
 export default function Missions() {
+  const dispatch = useDispatch();
+  const allMissions = useSelector(missions);
+
   useEffect(() => {
     dispatch(fetchMissions);
   }, [fetchMissions]);
