@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route path="/rockets">
             <Rockets />
           </Route>
           <Route path="/missions">
