@@ -4,9 +4,9 @@ const initialState = [];
 const ADD_MISSION = 'rockets/ADD_MISSION';
 
 const fetchAllMissions = async () => {
-  let res = await fetch(apiEndpoint);
-  res = await res.json();
-  return res;
+  let result = await fetch(apiEndpoint);
+  result = await result.json();
+  return result;
 };
 
 const addMission = (mission) => ({
