@@ -28,8 +28,8 @@ export default function Missions() {
     </tr>
   ));
   return (
-    <Container fluid>
-      <Table className="my-3 table-bordered table-striped">
+    <Container fluid className="py-3">
+      <Table className="my-4 table-bordered table-striped">
         <thead>
           <tr>
             <td>
