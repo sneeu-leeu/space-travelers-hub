@@ -13,7 +13,7 @@ const Rockets = () => {
 
   return (
     <div>
-      <p>rocket</p>
+      Rockets
     </div>
   );
 };
