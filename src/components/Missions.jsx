@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   Table, Container, Badge, Button,
 } from 'react-bootstrap';
-import { fetchMissions, joinTheMission, missions } from '../redux/missions/missions';
+import { fetchMissions, joinAMission, missions } from '../redux/missions/missions';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function Missions() {
   }, [fetchMissions]);
 
   const joinMission = (e) => {
-    dispatch(joinTheMission({ mission_id: e.target.id }));
+    dispatch(joinAMission({ mission_id: e.target.id }));
   };
 
   const missionComponents = allMissions.map((mission) => (
