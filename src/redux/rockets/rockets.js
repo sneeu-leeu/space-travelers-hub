@@ -28,4 +28,5 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+export const rockets = (state) => state.rocketsReducer;
 export default reducer;
