@@ -4,43 +4,54 @@ import { useDispatch } from 'react-redux';
 import './Rocket.css';
 import { reserveRocket } from '../redux/rockets/rockets';
 
-const dispatch = useDispatch();
-const makeReservation = (e) => {
-  dispatch(reserveRocket({ rocket_id: e.target.id }));
-};
+const Rocket = ({ rocket }) => {
+  const dispatch = useDispatch();
 
-const Rocket = ({ rocket }) => (
-  <li key={rocket.id} className="list-unstyled">
-    <div className="d-flex p-3 align-items-center">
-      <div>
-        <img
-          src={rocket.flickr_images[0]}
-          className="rocket-image"
-          alt={rocket.rocket_name}
-        />
-      </div>
-      <div className="rocket-description">
-        <h2>{rocket.rocket_name}</h2>
-        <span>
+  const makeReservation = (id) => {
+    dispatch(reserveRocket(id));
+  };
+
+  return (
+    <li key={rocket.id} className="list-unstyled">
+      <div className="d-flex p-3 align-items-center">
+        <div>
+          <img
+            src={rocket.flickr_images[0]}
+            className="rocket-image"
+            alt={rocket.rocket_name}
+          />
+        </div>
+        <div className="rocket-description">
+          <h2>{rocket.rocket_name}</h2>
+          <span>
+            {rocket.reserved ? (
+              <Badge className="bg-info">reserved</Badge>
+            ) : null}
+          </span>
+          <p>{rocket.description}</p>
           {rocket.reserved ? (
-            <Badge className="bg-info">reserved</Badge>
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={() => makeReservation(rocket.id)}
+            >
+              {' '}
+              Cancel Reservation
+            </button>
           ) : (
-            null
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => makeReservation(rocket.id)}
+            >
+              Reserve Rocket
+            </button>
           )}
-        </span>
-        <p>{rocket.description}</p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          id={rocket.id}
-          onClick={makeReservation}
-        >
-          Reservation Rocket
-        </button>
+        </div>
       </div>
-    </div>
-  </li>
-);
+    </li>
+  );
+};
 
 export default Rocket;
 
