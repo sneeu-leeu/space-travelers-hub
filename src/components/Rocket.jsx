@@ -1,5 +1,13 @@
 import { PropTypes } from 'prop-types';
+import { Badge } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import './Rocket.css';
+import { reserveRocket } from '../redux/rockets/rockets';
+
+const dispatch = useDispatch();
+const makeReservation = (e) => {
+  dispatch(reserveRocket({ rocket_id: e.target.id }));
+};
 
 const Rocket = ({ rocket }) => (
   <li key={rocket.id} className="list-unstyled">
@@ -13,8 +21,22 @@ const Rocket = ({ rocket }) => (
       </div>
       <div className="rocket-description">
         <h2>{rocket.rocket_name}</h2>
+        <span>
+          {rocket.reserved ? (
+            <Badge className="bg-info">reserved</Badge>
+          ) : (
+            null
+          )}
+        </span>
         <p>{rocket.description}</p>
-        <button type="button" className="btn btn-primary">Reservation Rocket</button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          id={rocket.id}
+          onClick={makeReservation}
+        >
+          Reservation Rocket
+        </button>
       </div>
     </div>
   </li>
@@ -27,6 +49,7 @@ Rocket.propTypes = {
     id: PropTypes.string.isRequired,
     flickr_images: PropTypes.arrayOf().isRequired,
     rocket_name: PropTypes.string.isRequired,
+    reserved: PropTypes.bool.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
 };

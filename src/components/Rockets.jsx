@@ -16,7 +16,10 @@ const Rockets = () => {
     <div>
       <ul>
         {rockets.map((rocket) => (
-          <Rocket key={rocket.id} rocket={rocket} />
+          <Rocket
+            key={rocket.id}
+            rocket={rocket}
+          />
         ))}
       </ul>
     </div>
