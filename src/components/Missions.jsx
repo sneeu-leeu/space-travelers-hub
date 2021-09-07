@@ -13,7 +13,7 @@ export default function Missions() {
     dispatch(fetchMissions);
   }, [fetchMissions]);
 
-  const joinMission = (e) => {
+  const joinOrLeaveMission = (e) => {
     dispatch(toggleMissionState({ mission_id: e.target.id }));
   };
 
