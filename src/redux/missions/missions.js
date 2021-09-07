@@ -4,9 +4,9 @@ const initialState = [];
 const ADD_MISSION = 'rockets/ADD_MISSION';
 
 const fetchAllMissions = async () => {
-  let result = await fetch(apiEndpoint);
-  result = await result.json();
-  return result;
+  let res = await fetch(apiEndpoint);
+  res = await res.json();
+  return res;
 };
 
 const addMission = (mission) => ({
@@ -36,4 +36,5 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+export const missions = (state) => state.missionsReducer;
 export default reducer;
