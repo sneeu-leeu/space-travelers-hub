@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   Table, Container, Badge, Button,
 } from 'react-bootstrap';
-import { fetchMissions, joinAMission, missions } from '../redux/missions/missions';
+import { fetchMissions, toggleMissionState, missions } from '../redux/missions/missions';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ export default function Missions() {
     dispatch(fetchMissions);
   }, [fetchMissions]);
 
-  const joinMission = (e) => {
-    dispatch(joinAMission({ mission_id: e.target.id }));
+  const joinOrLeaveMission = (e) => {
+    dispatch(toggleMissionState({ mission_id: e.target.id }));
   };
 
   const missionComponents = allMissions.map((mission) => (
@@ -31,7 +31,13 @@ export default function Missions() {
         }
       </td>
       <td className="px-4 align-middle">
-        <Button variant="outline-secondary" id={mission.mission_id} onClick={joinMission}>Join&nbsp;Mission</Button>
+        {
+            mission.reserved ? (
+              <Button variant="outline-danger" id={mission.mission_id} onClick={joinOrLeaveMission}>Leave&nbsp;Mission</Button>
+            ) : (
+              <Button variant="outline-secondary" id={mission.mission_id} onClick={joinOrLeaveMission}>Join&nbsp;Mission</Button>
+            )
+        }
       </td>
     </tr>
   ));
