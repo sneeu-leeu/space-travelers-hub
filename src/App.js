@@ -1,6 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import store from './redux/configureStore';
 import Header from './components/Header';
@@ -23,6 +26,7 @@ function App() {
           <Route path="/profile">
             <Profile />
           </Route>
+          <Redirect from="/" to="/rockets" />
         </Switch>
       </Router>
     </Provider>
