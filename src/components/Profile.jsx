@@ -55,29 +55,31 @@ const Profile = () => {
         </Col>
         <Col xs={12} md={6}>
           <h2>My Rockets</h2>
-          <ListGroup>
-            {rocketState.filter((rocket) => rocket.reserved).length === 0 ? (
-              <ListGroup.Item>No rockets reserved </ListGroup.Item>
-            ) : (
-              rocketState
-                .filter((rocket) => rocket.reserved)
-                .map((rocket) => (
-                  <ListGroup.Item
-                    key={rocket.id}
-                    className="list-group-item d-flex justify-content-between"
-                  >
-                    {rocket.rocket_name}
-                    {' '}
-                    <Button
-                      variant="outline-danger"
-                      onClick={() => dispatch(cancelReservation(rocket.id))}
+          <card>
+            <ListGroup>
+              {rocketState.filter((rocket) => rocket.reserved).length === 0 ? (
+                <ListGroup.Item>No rockets reserved </ListGroup.Item>
+              ) : (
+                rocketState
+                  .filter((rocket) => rocket.reserved)
+                  .map((rocket) => (
+                    <ListGroup.Item
+                      key={rocket.id}
+                      className="list-group-item d-flex justify-content-between"
                     >
-                      Cancel Reservation
-                    </Button>
-                  </ListGroup.Item>
-                ))
-            )}
-          </ListGroup>
+                      {rocket.rocket_name}
+                      {' '}
+                      <Button
+                        variant="outline-danger"
+                        onClick={() => dispatch(cancelReservation(rocket.id))}
+                      >
+                        Cancel Reservation
+                      </Button>
+                    </ListGroup.Item>
+                  ))
+              )}
+            </ListGroup>
+          </card>
         </Col>
       </Row>
     </Container>

@@ -1,0 +1,4 @@
+.link.active {
+  text-decoration: underline;
+  border-bottom: 2px solid rgb(204, 107, 228);
+}
