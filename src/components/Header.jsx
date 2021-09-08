@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.png';
+import './Header.css';
 
 function header() {
   return (
@@ -19,9 +20,9 @@ function header() {
         </div>
       </div>
       <nav>
-        <NavLink to="/rockets" className="p-2">Rockets</NavLink>
-        <NavLink to="/missions" className="p-2">Missions</NavLink>
-        <NavLink to="/profile" className="p-2">My Profile</NavLink>
+        <NavLink to="/rockets" className="p-2 link text-decoration-none">Rockets</NavLink>
+        <NavLink to="/missions" className="p-2 link text-decoration-none">Missions</NavLink>
+        <NavLink to="/profile" className="p-2 link text-decoration-none">My Profile</NavLink>
       </nav>
     </div>
   );
