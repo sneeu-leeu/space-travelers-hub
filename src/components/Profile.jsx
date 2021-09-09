@@ -8,10 +8,14 @@ import {
   ListGroup,
   ListGroupItem,
 } from 'react-bootstrap';
-import { missions } from '../redux/missions/missions';
+import { missions, toggleMissionState } from '../redux/missions/missions';
 
 const Profile = () => {
   const allMissions = useSelector(missions);
+
+  const leaveMission = (e) => {
+    dispatchEvent(toggleMissionState({ mission_id: e.target.id }));
+  };
 
   const reservedMissions = allMissions
     .filter((mission) => mission.reserved)
@@ -20,7 +24,12 @@ const Profile = () => {
         key={mission.mission_id}
         className="d-flex align-items-center justify-content-between"
       >
-        <span>{mission.mission_name}</span>
+        <span>
+          {mission.mission_name}
+          <br />
+          <a href={mission.wikipedia} target="blank">Read More</a>
+        </span>
+        <button type="button" variant="outline-danger" id={mission.mission_id} onClick={leaveMission}>Leave Mission</button>
       </ListGroupItem>
     ));
   const rocketState = useSelector((state) => state.rocketsReducer);
