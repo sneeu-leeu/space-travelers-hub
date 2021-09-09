@@ -9,7 +9,7 @@ Additional description of the project and its features.
 
 ## 🔴  Live Demo
 
-[Space-travelers-hub](https://eloquent-northcutt-7089a4.netlify.app/rockets)
+[Space-travelers-hub](https://eloquent-northcutt-7089a4.netlify.app)
 ## Built With
 
 - HTML
